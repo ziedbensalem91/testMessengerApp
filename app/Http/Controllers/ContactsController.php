@@ -6,7 +6,6 @@ use App\Events\NewMessage;
 use App\Message;
 use App\User;
 use Illuminate\Http\Request;
-use Broadcast;
 use Illuminate\Support\Facades\DB;
 
 class ContactsController extends Controller
@@ -58,7 +57,7 @@ public function send(Request $request)
         'text' => $request->text
     ]);
 
-    broadcast(new NewMessage($message));
+    Broadcast(new NewMessage($message));
 
     return response()->json($message);
 }

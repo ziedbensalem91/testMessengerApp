@@ -24,7 +24,7 @@
         },
         mounted() {
             Echo.private(`messages.${this.user.id}`)
-                .listen('NewMessage', (e) => {
+                .listen('.NewMessage', (e) => {
                     this.hanleIncoming(e.message);
                 });
             axios.get('/contacts')
